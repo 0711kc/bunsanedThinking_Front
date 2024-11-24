@@ -1,6 +1,7 @@
-import { fetchGetPartnerCompanyById } from "../../../../apiUtils/apiDocumentation/employee/compensationPlanning/compensationPlanning.js";
-import {BUTTON} from "../../../../../../config/employee/compensationPlanning/compensationPlanning.js";
-import {initialButtons} from "../../../common/buttonUtils.js";
+import {
+  fetchGetPartnerCompanyById
+} from "../../../../apiUtils/apiDocumentation/employee/compensationPlanning/compensationPlanning.js";
+import {renderButtons} from "../../../buttonManager/employee/compensationPlanning/detail.js";
 
 const partnerCompanyTypeStr = {
   // Hospital: "병원",
@@ -24,8 +25,7 @@ const partnerCompanyDetail = (data) => {
 const context = {
   EVALUATE_PARTNERCOMPANY: {
     detailGetter: partnerCompanyDetail,
-    fetchGetById: fetchGetPartnerCompanyById,
-    buttons: BUTTON.TASK.COMPENSATIONPLANNING.EVALUATE_PARTNERCOMPANY
+    fetchGetById: fetchGetPartnerCompanyById
   }
 }
 
@@ -86,24 +86,4 @@ const renderDetailsTable = (data) => {
     }
     detailsTable.querySelector("tbody").appendChild(row);
   });
-}
-
-const evaluate = () => {
-  alert("평가-보상기획");
-}
-
-const cancel = () => {
-  window.location.href = "informationList.html";
-}
-
-const compensationPlanningTaskMapper = {
-  EVALUATE_PARTNERCOMPANY: {
-    EVALUATE: evaluate,
-    CANCEL: cancel
-  }
-}
-
-const renderButtons = () => {
-  const type = sessionStorage.getItem("currentType");
-  initialButtons(BUTTON.TASK.COMPENSATIONPLANNING[type], compensationPlanningTaskMapper[type]);
 }

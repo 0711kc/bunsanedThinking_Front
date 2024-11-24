@@ -16,7 +16,10 @@ export const BUTTON = {
   }
 };
 
-// export const POP_UP = {};
+export const POP_UP = {
+  ACCEPTANCE: "승인이 완료되었습니다.",
+  DENIED: "거절이 완료되었습니다."
+};
 
 export const COMBOBOX = {
   REVIEW_ACQUISITION: {

@@ -42,6 +42,13 @@ body {
   width: 20%;
   padding: 5px;
   border: 1px solid #333;
+  transition: background-color 0.3s, box-shadow 0.3s; /* 배경색과 그림자 효과 애니메이션 */
+  cursor: pointer; /* 클릭 가능한 버튼 모양 */
+}
+
+.post-button:hover {
+  background-color: #f0f0f0; /* 호버 시 배경색 변경 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 호버 시 그림자 추가 */
 }
 
 .combo-box {

@@ -1,4 +1,4 @@
-import {BUTTON, DETAIL_COLUMN_NAME} from "../../../../../../config/employee/sales/sales.js";
+import {BUTTON, DETAIL_COLUMN_NAME, POP_UP} from "../../../../../../config/employee/sales/sales.js";
 import {
   fetchGetInsuranceProductDetail,
   fetchGetLoanProductDetail,
@@ -119,7 +119,7 @@ const context = {
   EVALUATE_SALES_PERFORMANCE: {
     detailGetter: salesDetail,
     fetchGetById: fetchGetSalesDetail,
-    buttons: BUTTON.TASK.EMPLOYEE.SALES.EVALUATE_SALES_PERFORMANCE
+    buttons: BUTTON.TASK.EMPLOYEE.SALES.EVALUATE_SALES_PERFORMANCE.DETAIL
   },
   HANDLE_INSURANCE_CONSULTATION: {
     detailGetter: counselDetail,
@@ -219,7 +219,7 @@ const initialButtons = (buttonMessages, buttonActionMapper) => {
 }
 
 const reservationInsuranceCounsel = async (selectedDataId) => {
-  alert("예약되었습니다.");
+  alert(POP_UP.RESERVATION);
   await context.HANDLE_INSURANCE_CONSULTATION.fetchHandleInsuranceConsultation(selectedDataId)
   window.location.href = "home.html";
 }
@@ -230,11 +230,11 @@ const evaluationSales = (selectedDataId) => {
 }
 
 const cancel = () => {
-  window.location.href = "home.html";
+  window.history.back();
 }
 
 const sendingNotice = () => {
-  alert("안내장이 발송되었습니다.");
+  alert(POP_UP.SENDING_NOTICE);
   window.location.href = "home.html";
 }
 

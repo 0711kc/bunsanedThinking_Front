@@ -1,4 +1,4 @@
-import {BUTTON, DETAIL_COLUMN_NAME} from "../../../../../../config/employee/productManagement/productManagement.js";
+import {BUTTON, DETAIL_COLUMN_NAME, POP_UP} from "../../../../../../config/employee/productManagement/productManagement.js";
 import {
   fetchDeleteInsuranceProduct,
   fetchGetInsuranceProductDetail
@@ -148,11 +148,16 @@ const updateInsurance = async () => {
 }
 
 const deleteInsurance = async () => {
-  const type = sessionStorage.getItem("currentType");
-  const id = sessionStorage.getItem("selectedDataId");
-  await context[type].fetchDelete(id);
-  alert("삭제 완료.");
-  window.location.href = "home.html";
+  const userConfirmed = confirm(POP_UP.DELETE.QUESTION);
+  if (userConfirmed) {
+    alert(POP_UP.DELETE.OK);
+    const type = sessionStorage.getItem("currentType");
+    const id = sessionStorage.getItem("selectedDataId");
+    await context[type].fetchDelete(id);
+    window.location.href = "home.html";
+  } else {
+    window.history.back();
+  }
 }
 
 const productManagementTaskMapper = {

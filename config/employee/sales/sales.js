@@ -15,8 +15,13 @@ export const BUTTON = {
             CANCEL: COMMON_BUTTON.COMMON.CANCEL
         },
         EVALUATE_SALES_PERFORMANCE:{
+          DETAIL:{
             EVALUATION: "평가",
             CANCEL: COMMON_BUTTON.COMMON.CANCEL
+          },
+          INPUT:{
+            STAR: "★"
+          }
         },
         INDUCE_INSURANCE_PRODUCT:{
             SENDING_NOTICE: "안내장 발송",
@@ -26,33 +31,16 @@ export const BUTTON = {
           SENDING_NOTICE: "안내장 발송",
           LOAN_REQUEST: "대출 요청"
         }
-
-        // ,
-        // EVALUATE_SALES_PERFORMANCE:{
-        //   ONE_STAR: "*",
-        //   TWO_STAR: "**",
-        //   THREE_STAR: "***",
-        //   FOUR_STAR: "****",
-        //   FIVE_STAR: "*****",
-        //   EVALUATION: "평가"
-        // },
-        // HANDLE_INSURANCE_CONSULTATION:{
-        //   RESERVATION: "예약"
-        // },
-        // INDUCE_INSURANCE_PRODUCT:{
-        //   SENDING_NOTICE: "안내장 발송",
-        //   INSURANCE_ENROLLMENT_REQUEST: "보험 가입 요청"
-        // },
-        // INDUCE_LOAN_PRODUCT:{
-        //   SENDING_NOTICE: "안내장 발송",
-        //   LOAN_REQUEST: "대출 요청"
-        // }
       }
     }
   }
 };
 
-// export const POP_UP = {};
+export const POP_UP = {
+  RESERVATION: "예약이 완료되었습니다.",
+  SENDING_NOTICE: "안내장이 발송되었습니다.",
+  EVALUATION: "평가가 완료되었습니다."
+};
 export const COMBOBOX = {
   HANDLE_INSURANCE_CONSULTATION: {
     isCombo: true,
@@ -226,3 +214,10 @@ export const DETAIL_COLUMN_NAME = {
     }
   }
 };
+
+export const NAME_MAPPER= {
+  EVALUATE_SALES_PERFORMANCE: "EVALUATE_SALES_PERFORMANCE",
+  HANDLE_INSURANCE_CONSULTATION: "HANDLE_INSURANCE_CONSULTATION",
+  INDUCE_INSURANCE_PRODUCT: "INDUCE_INSURANCE_PRODUCT",
+  INDUCE_LOAN_PRODUCT: "INDUCE_LOAN_PRODUCT"
+}

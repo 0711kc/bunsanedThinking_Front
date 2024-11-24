@@ -2,8 +2,7 @@ import {
   fetchGetInsuranceMoneyById,
   fetchGetReportById
 } from "../../../../apiUtils/apiDocumentation/employee/compensation/compensation.js";
-import {BUTTON} from "../../../../../../config/employee/compensation/compensation.js";
-import {initialButtons} from "../../../common/buttonUtils.js";
+import {renderButtons} from "../../../buttonManager/employee/compensation/detail.js";
 
 const serviceTypeStr = {
   EmergencyTowing: "긴급견인",
@@ -59,13 +58,11 @@ const insuranceMoneyDetail = (data) => {
 const context = {
   REQUEST_COMPENSATION: {
     detailGetter: reportDetail,
-    fetchGetById: fetchGetReportById,
-    buttons: BUTTON.TASK.COMPENSATION.REQUEST_COMPENSATION
+    fetchGetById: fetchGetReportById
   },
   REQUEST_INSURANCE_MONEY: {
     detailGetter: insuranceMoneyDetail,
-    fetchGetById: fetchGetInsuranceMoneyById,
-    buttons: BUTTON.TASK.COMPENSATION.REQUEST_INSURANCE_MONEY
+    fetchGetById: fetchGetInsuranceMoneyById
   }
 }
 
@@ -126,32 +123,4 @@ const renderDetailsTable = (data) => {
     }
     detailsTable.querySelector("tbody").appendChild(row);
   });
-}
-
-const requestCompensation = () => {
-  alert("보상처리");
-}
-
-const requestInsuranceMoney = () => {
-  alert("보험금 지급");
-}
-
-const cancel = () => {
-  window.history.back();
-}
-
-const compensationTaskMapper = {
-  REQUEST_COMPENSATION: {
-    REQUEST: requestCompensation,
-    CANCEL: cancel
-  },
-  REQUEST_INSURANCE_MONEY: {
-    REQUEST: requestInsuranceMoney,
-    CANCEL: cancel
-  }
-}
-
-const renderButtons = () => {
-  const type = sessionStorage.getItem("currentType");
-  initialButtons(BUTTON.TASK.COMPENSATION[type], compensationTaskMapper[type]);
 }

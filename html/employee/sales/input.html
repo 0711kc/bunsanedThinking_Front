@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link rel="stylesheet" href="../../../css/input.css">
+</head>
+<body>
+
+<div class="container">
+  <!-- 입력란 컨테이너 -->
+  <div id="inputFieldsContainer"></div>
+
+  <!-- 버튼 컨테이너 -->
+  <div class="button-container" id="buttonContainer"></div>
+
+  <!-- 별 버튼 컨테이너 -->
+  <div class="star-buttons-container" id="starButtonsContainer"></div>
+</div>
+
+<script type="module">
+  import {renderInput} from "../../../js/utils/uiUtils/tableRenderer/employee/sales/input.js";
+
+  document.addEventListener("DOMContentLoaded", async () => {
+    renderInput();
+  });
+</script>
+</body>
+</html>

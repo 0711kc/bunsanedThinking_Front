@@ -16,7 +16,21 @@ export const BUTTON = {
   }
 };
 
-// export const POP_UP = {};
+export const POP_UP = {
+  UPDATE: {
+    QUESTION: "정말로 수정하시겠습니까?",
+    OK: "수정이 완료되었습니다."
+  },
+  DELETE: {
+    QUESTION: "정말로 삭제하시겠습니까?",
+    OK: "삭제가 완료되었습니다."
+  },
+  POST: {
+    QUESTION: "정말로 등록하시겠습니까?",
+    OK: "등록이 완료되었습니다."
+  }
+};
+
 export const COMBOBOX = {
   MANAGE_INSURANCE_PRODUCT: {
     isCombo: false

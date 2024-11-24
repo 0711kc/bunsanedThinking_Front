@@ -6,6 +6,8 @@ import {
   fetchUpdateDiseaseInsurance,
   fetchUpdateInjuryInsurance
 } from "../../../../apiUtils/apiDocumentation/employee/productManagement/productManagement.js";
+import {POP_UP, BUTTON} from "../../../../../../config/employee/productManagement/productManagement.js";
+import {BUTTON as COMMON_BUTTON} from "../../../../../../config/common.js"
 
 const context = {
   MANAGE_INSURANCE_PRODUCT: {
@@ -35,35 +37,36 @@ export const addButtons = (buttonContainer) => {
   cancelButton.className = "button-item";
 
   if (selectedButtonType === "POST") {
-    saveButton.textContent = "확인";
-    saveButton.addEventListener("click", async () => {
-      const formData = collectFormDataForPost();
-      console.log("POST 데이터:", formData);
-      alert("정말 등록하겠습니까?");
-
-      await context[type].fetchAddInsurance[formData.insuranceType](formData);
-
-      window.location.href = "home.html"
-    });
-
-    cancelButton.textContent = "취소";
-    cancelButton.addEventListener("click", () => window.location.href = "home.html");
+    saveButton.textContent = COMMON_BUTTON.COMMON.OK;
+    cancelButton.textContent = COMMON_BUTTON.COMMON.CANCEL;
+      saveButton.addEventListener("click", async () => {
+        const userConfirmed = confirm(POP_UP.POST.QUESTION);
+        if (userConfirmed) {
+        const formData = collectFormDataForPost();
+        await context[type].fetchAddInsurance[formData.insuranceType](formData);
+        alert(POP_UP.POST.OK);
+        window.location.href = "home.html"
+        } else {
+          window.history.back();
+        }
+      });
+    cancelButton.addEventListener("click", () => window.history.back());
   } else if (selectedButtonType === "UPDATE") {
-    saveButton.textContent = "수정";
-    saveButton.addEventListener("click", async () => {
-      const formData = collectFormDataForUpdate();
-      console.log("UPDATE 데이터:", formData);
-      alert("정말 수정하시겠습니까?");
-
-      await context[type].fetchUpdateInsurance[formData.insuranceType](formData);
-
-      window.location.href = "home.html"
-    });
-
-    cancelButton.textContent = "취소";
-    cancelButton.addEventListener("click", () => window.location.href = "home.html");
+    saveButton.textContent = BUTTON.TASK.EMPLOYEE.PRODUCT_MANAGEMENT.MANAGE_INSURANCE_PRODUCT.UPDATE;
+    cancelButton.textContent = COMMON_BUTTON.COMMON.CANCEL;
+      saveButton.addEventListener("click", async () => {
+        const userConfirmed = confirm(POP_UP.UPDATE.QUESTION);
+        if (userConfirmed) {
+        const formData = collectFormDataForUpdate();
+        await context[type].fetchUpdateInsurance[formData.insuranceType](formData);
+        alert(POP_UP.UPDATE.OK);
+        window.location.href = "home.html"
+        } else {
+          window.history.back();
+        }
+      });
+    cancelButton.addEventListener("click", () => window.history.back());
   }
-
   buttonContainer.appendChild(saveButton);
   buttonContainer.appendChild(cancelButton);
 };

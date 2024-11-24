@@ -1,4 +1,4 @@
-import { BUTTON, DETAIL_COLUMN_NAME } from "../../../../../../config/employee/underWriting/underWriting.js";
+import { BUTTON, DETAIL_COLUMN_NAME, POP_UP } from "../../../../../../config/employee/underWriting/underWriting.js";
 import {
   fetchGetContractDetail,
   fetchReviewAcquisition
@@ -127,13 +127,13 @@ const initialButtons = (buttonMessages, buttonActionMapper) => {
 
 const acceptanceInsurance = async (selectedDataId) => {
   await context.REVIEW_ACQUISITION.fetchReviewAcquisition(selectedDataId, true);
-  alert("승인 완료");
+  alert(POP_UP.ACCEPTANCE);
   window.location.href = "home.html";
 };
 
 const deniedInsurance = async (selectedDataId) => {
   await context.REVIEW_ACQUISITION.fetchReviewAcquisition(selectedDataId, false);
-  alert("거절 완료");
+  alert(POP_UP.DENIED);
   window.location.href = "home.html";
 };
 

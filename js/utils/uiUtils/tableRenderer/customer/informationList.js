@@ -30,26 +30,6 @@ export const informationType = {
   VIEW_COMPLAINT: "VIEW_COMPLAINT"
 }
 
-const insuranceRow = (dto) => {
-  return `
-    <td>${dto.name}</td>
-    <td>${dto.insuranceType}</td>
-    <td>${dto.id}</td>
-    <td>${dto.ageRange}</td>
-    <td>${dto.monthlyPremium}</td>
-  `;
-}
-
-const loanRow = (dto) => {
-  return `
-    <td>${dto.name}</td>
-    <td>${dto.loanType}</td>
-    <td>${dto.id}</td>
-    <td>${dto.interestRate}</td>
-    <td>${dto.maximumMoney}</td>
-  `;
-}
-
 const contractRow = (dto) => {
   return `
     <td>${dto.id}</td>
@@ -78,12 +58,32 @@ const accidentRow = (dto) => {
 
 const complaintRow = (dto) => {
   return `
-    <td>${dto.type}</td>
     <td>${dto.id}</td>
+    <td>${dto.type}</td>
     <td>${dto.title}</td>
     <td>${dto.postDate}</td>
     <td>${dto.processingDate}</td>
     <td>${dto.status}</td>
+  `;
+}
+
+const insuranceRow = (dto) => {
+  return `
+    <td>${dto.id}</td>
+    <td>${dto.name}</td>
+    <td>${dto.insuranceType}</td>
+    <td>${dto.ageRange}</td>
+    <td>${dto.monthlyPremium}</td>
+  `;
+}
+
+const loanRow = (dto) => {
+  return `
+    <td>${dto.id}</td>
+    <td>${dto.name}</td>
+    <td>${dto.loanType}</td>
+    <td>${dto.interestRate}</td>
+    <td>${dto.maximumMoney}</td>
   `;
 }
 
